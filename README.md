@@ -4,7 +4,7 @@ Trying to create a realistic dynamic body of water using Fast Fourier transform,
 ## Sources / Information
 
 #### Articles
-* http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.9102&rep=rep1&type=pdf - Base Article I'm going off of for FFT, has equations etc.
+* http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.9102&rep=rep1&type=pdf - 1999-2001 Base Article I'm going off of, "Simulating Ocean Water", has equations, general principles etc.
 * http://users.encs.concordia.ca/~grogono/Graphics/waves-1.pdf - 1986 Article "A Simple Model Of Ocean Waves" Written by Fournier.
 
 #### Videos
