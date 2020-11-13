@@ -10,7 +10,8 @@ Trying to create a realistic dynamic body of water using Gerstner waves and hope
 
 #### Videos
 * [Fourier Transform concept 3blue1brown](https://www.youtube.com/watch?v=spUNpyF58BY&list=PLJPAgezdQHRH8PKECjIxSL-CBmB8k-2nR&index=2)
-* [Intro to Fast Fourier Transform](https://www.youtube.com/watch?v=P4G0hn5QhMs)
+* [Intro to Fast Fourier Transform](https://www.youtube.com/watch?v=P4G0hn5QhMs), 
+[Slideshow Associated With Video](https://www.slideshare.net/Codemotion/an-introduction-to-realistic-ocean-rendering-through-fft-fabio-suriano-codemotion-rome-2017)
 * [Brief Video About Gerstner Waves](https://www.youtube.com/watch?v=V4yZigMSLiU&list=PLJPAgezdQHRH8PKECjIxSL-CBmB8k-2nR&index=1)
 * [Gerstner Waves using blueprint in ue4.](https://www.youtube.com/watch?v=ANaER2rvd9M&list=PLJPAgezdQHREuUxXIzpBaGWLBYRJomN_l&index=2)
 * [Mathematical Ocean For Buoyancy, Blueprint in ue4](https://www.youtube.com/watch?v=spUNpyF58BY&list=PLJPAgezdQHRH8PKECjIxSL-CBmB8k-2nR&index=2)
