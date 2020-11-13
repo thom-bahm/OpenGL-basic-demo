@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeWaterRendering_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x4BC1503E,
-				0x21544DAA,
+				0xE8CC6524,
+				0x98AB519C,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

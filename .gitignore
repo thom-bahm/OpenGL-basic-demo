@@ -92,3 +92,6 @@ WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/Timestamp
 *.res
 *.txt
 *.uproject
+*.old
+*.state
+WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/WaterRendering.init.gen.cpp
