@@ -16,3 +16,11 @@ Trying to create a realistic dynamic body of water using Gerstner waves and hope
 * [Mathematical Ocean For Buoyancy, Blueprint in ue4](https://www.youtube.com/watch?v=spUNpyF58BY&list=PLJPAgezdQHRH8PKECjIxSL-CBmB8k-2nR&index=2)
 * [Goal video, what I'd ideall be able to acheive (Ocean rendering done in OpenGL)](https://www.youtube.com/watch?v=CeJCNmI-B7s&list=PLJPAgezdQHREseDfQ5LaUd5Sn3ONhlXEL&index=1)
 * [Another goal video](https://www.youtube.com/watch?v=OQ3D0Q5BlOs&list=PLJPAgezdQHREseDfQ5LaUd5Sn3ONhlXEL&index=2)
+
+
+#### What Do I need to know?
+* Need to learn how intergrals work and generally better calculus
+* Discrete Fourier Transform, also regular but I kind of understand Fourier Transform
+* Gerstner Waves and equations related
+* Need to relearn some ue4 and c++ (Mainly c++)
+* Ultimately, Fast Fourier Transform and how to implement it.
