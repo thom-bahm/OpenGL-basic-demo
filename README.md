@@ -7,6 +7,7 @@ Trying to create a realistic dynamic body of water using Gerstner waves and hope
 * http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.9102&rep=rep1&type=pdf - 1999-2001 Base Article I'm going off of, Kind of the 'Original' Paper, "Simulating Ocean Water", has equations, general principles etc. Written By Jerry Tessendorf.
 * http://users.encs.concordia.ca/~grogono/Graphics/waves-1.pdf - 1986 Article "A Simple Model Of Ocean Waves" Written by Fournier.
 * https://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds/simulating-odean-waves/simulating-surface-ocean - C++ Adaptation of Tessendorf Paper
+* [Nvidia GPU Gems, Gerstner Waves](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-1-effective-water-simulation-physical-models)
 
 #### Videos
 * [Fourier Transform concept 3blue1brown](https://www.youtube.com/watch?v=spUNpyF58BY&list=PLJPAgezdQHRH8PKECjIxSL-CBmB8k-2nR&index=2)
