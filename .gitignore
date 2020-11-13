@@ -72,3 +72,23 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+*.ini
+*.log
+*.bin
+*.filters
+*.deps
+*.dat
+*.uhtpath
+*.vcxproj
+*.user
+*.json
+*.response
+*.uhtmanifest
+WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/Timestamp
+*.exp
+*.pdb
+*.modules
+*.target
+*.res
+*.txt
+*.uproject
