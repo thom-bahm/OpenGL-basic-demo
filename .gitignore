@@ -95,3 +95,4 @@ WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/Timestamp
 *.old
 *.state
 WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/WaterRendering.init.gen.cpp
+*.umap
