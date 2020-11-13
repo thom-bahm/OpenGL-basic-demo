@@ -1,5 +1,5 @@
 # OceanOrWaterRendering
-Trying to create a realistic dynamic body of water using Fast Fourier transform, most likely in ue4 or unity. Ultimate goal would be to have a landscape created in WorldCreator that the body of water could interact with, ideally keeping decent performance but priority may aim towards high graphics.
+Trying to create a realistic dynamic body of water using Gerstner waves and hopefully Fast Fourier transform, most likely in ue4. Goal is to have a body of water (likeley an ocean) with realistic waves. Ultimate goal would be to have dynamic waves with adjustable sizing and high realism, and a landscape created in WorldCreator that the body of water could interact with to some extent.
 
 ## Sources / Information
 
