@@ -18,7 +18,9 @@ Trying to create a realistic dynamic body of water using Gerstner waves and hope
 * [Another goal video](https://www.youtube.com/watch?v=OQ3D0Q5BlOs&list=PLJPAgezdQHREseDfQ5LaUd5Sn3ONhlXEL&index=2)
 
 
-#### What Do I need to know?
+
+
+##### What Do I need to know?
 * Need to learn how intergrals work and generally better calculus
 * Discrete Fourier Transform, also regular but I kind of understand Fourier Transform
 * Gerstner Waves and equations related
