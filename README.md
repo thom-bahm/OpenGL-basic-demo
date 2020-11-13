@@ -10,3 +10,4 @@ Trying to create a realistic dynamic body of water using Fast Fourier transform,
 
 #### Videos
 * https://www.youtube.com/watch?v=P4G0hn5QhMs - Intro to Fast Fourier Transform
+* https://www.youtube.com/watch?v=CeJCNmI-B7s&list=PLJPAgezdQHREseDfQ5LaUd5Sn3ONhlXEL&index=1 - Goal video, what I'd ideall be able to acheive (Ocean rendering done in OpenGL)
