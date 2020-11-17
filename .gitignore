@@ -81,7 +81,6 @@ DerivedDataCache/*
 *.uhtpath
 *.vcxproj
 *.user
-*.json
 *.response
 *.uhtmanifest
 WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/Timestamp
@@ -90,7 +89,6 @@ WaterRendering/Intermediate/Build/Win64/UE4Editor/Inc/WaterRendering/Timestamp
 *.modules
 *.target
 *.res
-*.txt
 *.uproject
 *.old
 *.state
