@@ -1,6 +1,7 @@
 # OpenGLv2
 Ultimate goal is to create realistic water and waves that run in realtime, many many side goals and much groundwork needs to be laid down before that though. 
 
+Currently using GLFW and GLEW Binaries.
 ## Sources / Information
 
 #### Articles
