@@ -29559,9 +29559,6 @@
 				"Engine",
 				"InputCore"
 			],
-			"PrivateDependencyModules": [
-				"Engine"
-			],
 			"PublicIncludePaths": [
 				"C:\\Users\\Thomas\\Documents\\GitHub\\OceanOrWaterRendering\\WaterRendering\\Source"
 			],
