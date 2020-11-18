@@ -24,6 +24,7 @@ Currently using GLFW and GLEW Binaries.
 ##### To-Do
 * Get back to where I was with og OpenGL Repo (Textures, lighting, matrices, everything), but organize it so that there are less files, it's just annoying to deal with all that when troubleshooting
 * Figure out hot to import .FBX, ultimate goal would be to import a WorldCreator 1000mx1000m or larger terrain
+* More sophisticated lighting/ shaders, also see if theres any good resources on how to create skybox/ atmosphere.
 * Could be way down the line or never, but figure out how to import heatmaps from world creator, would be amazing but probably very beyond my level. Could be very cool but this would be a whole different project.
 * Start creating planes that can be changed in size with dimension paramters (1x1 = 4 vertices, 2x2 = 9, etc).
 * Create wireframe mode, I'm pretty sure it's only one line of code but maybe make it a parameter so I could edit lit vs wireframe in real time.
