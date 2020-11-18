@@ -247,3 +247,7 @@ OpenGL/OpenGL/Dependencies/GLEW/doc/travis.png
 OpenGL/OpenGL/Dependencies/GLEW/doc/ogl_sm.jpg
 OpenGL/OpenGL/Dependencies/GLEW/doc/new.png
 OpenGL/OpenGL/Dependencies/GLEW/doc/github.png
+*.db-shm
+*.db-wal
+*.opendb
+OpenGL/OpenGL/src/vendor/glm/CMakeLists.txt
