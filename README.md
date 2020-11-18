@@ -1,5 +1,5 @@
-# OceanOrWaterRendering
-Trying to create a realistic dynamic body of water using Gerstner waves and hopefully Fast Fourier transform, most likely in ue4. Goal is to have a body of water (likeley an ocean) with realistic waves. Ultimate goal would be to have dynamic waves with adjustable sizing and high realism, and a landscape created in WorldCreator that the body of water could interact with to some extent.
+# OpenGLv2
+Ultimate goal is to create realistic water and waves that run in realtime, many many side goals and much groundwork needs to be laid down before that though. 
 
 ## Sources / Information
 
@@ -20,11 +20,24 @@ Trying to create a realistic dynamic body of water using Gerstner waves and hope
 * [Another goal video](https://www.youtube.com/watch?v=OQ3D0Q5BlOs&list=PLJPAgezdQHREseDfQ5LaUd5Sn3ONhlXEL&index=2)
 
 
+##### To-Do
+* Get back to where I was with og OpenGL Repo (Textures, lighting, matrices, everything), but organize it so that there are less files, it's just annoying to deal with all that when troubleshooting
+* Figure out hot to import .FBX, ultimate goal would be to import a WorldCreator 1000mx1000m or larger terrain
+* Could be way down the line or never, but figure out how to import heatmaps from world creator, would be amazing but probably very beyond my level. Could be very cool but this would be a whole different project.
+* Start creating planes that can be changed in size with dimension paramters (1x1 = 4 vertices, 2x2 = 9, etc).
+* Create wireframe mode, I'm pretty sure it's only one line of code but maybe make it a parameter so I could edit lit vs wireframe in real time.
+* Figure out how to offset individual and group vertices.
+* Try to offset individual and group vertices over some time and have it repeat the process, just to be more prepared for Gerstner waves.
+* Begin trying to apply the Gerstner wave equations to the plane to create 1-Directional waves, Amp, Freq, Length, everything should be parameter adjustable (Doesn't have to be real time). This part Will 100% take the longest since it's essentially the final part. This will follow the Nvidia GPU Gems equations.
+* Make sure things are optimized
+* (Not sure when to start this part) Figure out texture tiling and Apply textures to plane (or wait until final wave model is done to do this, could just use a color during 'development')
 
+* ... To be continued, worry about this in a while
 
 ##### What Do I need to know?
 * Need to learn how intergrals work and generally better calculus
 * Discrete Fourier Transform, also regular but I kind of understand Fourier Transform
 * Gerstner Waves and equations related
-* Need to relearn some ue4 and c++ (Mainly c++)
+* Need to get more comfortable with c++ again.
+* All the lighting and refraction details necessary to create realistic water.
 * Ultimately, Fast Fourier Transform and how to implement it.
