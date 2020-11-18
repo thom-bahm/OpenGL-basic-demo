@@ -33,11 +33,3 @@ Ultimate goal is to create realistic water and waves that run in realtime, many 
 * (Not sure when to start this part) Figure out texture tiling and Apply textures to plane (or wait until final wave model is done to do this, could just use a color during 'development')
 
 * ... To be continued, worry about this in a while
-
-##### What Do I need to know?
-* Need to learn how intergrals work and generally better calculus
-* Discrete Fourier Transform, also regular but I kind of understand Fourier Transform
-* Gerstner Waves and equations related
-* Need to get more comfortable with c++ again.
-* All the lighting and refraction details necessary to create realistic water.
-* Ultimately, Fast Fourier Transform and how to implement it.
