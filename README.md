@@ -23,6 +23,7 @@ Currently using GLFW and GLEW Binaries.
 
 ##### To-Do
 * Get back to where I was with og OpenGL Repo (Textures, lighting, matrices, everything), but organize it so that there are less files, it's just annoying to deal with all that when troubleshooting
+* Learn ImGui
 * Figure out hot to import .FBX, ultimate goal would be to import a WorldCreator 1000mx1000m or larger terrain
 * More sophisticated lighting/ shaders, also see if theres any good resources on how to create skybox/ atmosphere.
 * Could be way down the line or never, but figure out how to import heatmaps from world creator, would be amazing but probably very beyond my level. Could be very cool but this would be a whole different project.
