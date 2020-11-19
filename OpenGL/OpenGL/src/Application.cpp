@@ -1,46 +1,172 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "Game.h"
 
 #include <iostream>
+#include "Texture.h"
+#include "VertexBufferLayout.h"
+
+void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
+{
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		position.z -= 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		position.x -= 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		position.z += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		position.x += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+	{
+		rotation.y -= 1.f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+	{
+		rotation.y += 1.f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+	{
+		scale += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+	{
+		scale -= 0.01f;
+	}
+}
 
 int main(void)
 {
-    GLFWwindow* window;
+	Game game(1080, 1080, "Engine", 4, 4, true);
 
-    /* Initialize the library */
-    if (!glfwInit())
-        glfwTerminate();
+	{
+		float positions[] = {
+			//Positions			//Tex Coords		//Normals
+		   -0.8f, -0.8f, 0.f,   0.f, 0.0f, 0.0f,	0.f, 0.0f,  1.0f, //0 Bottom Left
+			0.8f, -0.8f, 0.f,   1.0f, 0.0f, 0.f,	0.0f, 0.0f, 1.f, //1 Bottom Right
+			0.8f, 0.8f, 0.f,    1.0f, 1.0f, 0.f,	0.0f, 0.0f, 1.f, //2 Top right
+		   -0.8f, 0.8f, 0.f,    0.0f, 1.0f, 0.f,	0.0f, 0.0f, 1.f  //3 Top Left
+		};
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
+		unsigned int indices[] = {
+			0, 1, 2,
+			2, 3, 0
+		};
 
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-	
-    if (glewInit() != GLEW_OK)
-        std::cout << "Error!" << std::endl;
+		VertexArray va;
+		VertexBuffer vb(positions, sizeof(float) * 4 * 9);
 
-    std::cout << glGetString(GL_VERSION) << std::endl;
-	
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
+		VertexBufferLayout layout;
+		layout.Push<float>(3);
+		layout.Push<float>(3);
+		layout.Push<float>(3);
+		va.AddBuffer(vb, layout);
 
-     
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+		IndexBuffer ib(indices, 6);
 
-        /* Poll for and process events */
-        glfwPollEvents();
-    }
+		Shader shader("res/shaders/shaders.shader");
+		shader.Bind();
+		shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
 
-    glfwTerminate();
-    return 0;
+		Texture texture0("res/textures/texture_flame_hole_1024.png", 0);
+		Texture texture1("res/textures/texture_flame_square-hole_2048.png", 1);
+		texture0.Bind(texture0.GetSlot());
+		texture1.Bind(texture1.GetSlot());
+
+		Material material0(glm::vec3(0.4f), glm::vec3(1.f), glm::vec3(1.f), texture0.GetSlot(), texture1.GetSlot());
+
+		glm::vec3 position(0.f);
+		glm::vec3 rotation(0.f);
+		glm::vec3 scale(1.f);
+
+		glm::mat4 ModelMatrix(1.f); // creates 4x4 identity matrix (1's diagonally across)
+		ModelMatrix = glm::translate(ModelMatrix, glm::vec3(0.f, 0.f, 0.f));
+		ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.x), position);
+		ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.y), glm::vec3(0.f, 1.f, 0.f));
+		ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.z), glm::vec3(0.f, 0.f, 1.f));
+		ModelMatrix = glm::scale(ModelMatrix, scale);
+
+		glm::vec3 cameraPos(0.f, 0.f, 1.f);
+		glm::vec3 worldUp(0.f, 1.f, 0.f); //Y is up vector, z is front and back
+		glm::vec3 camFront(0.f, 0.f, -1.f);
+
+		glm::mat4 ViewMatrix(1.f);
+		ViewMatrix = glm::lookAt(cameraPos, cameraPos + camFront, worldUp);
+
+		float fov = 1.5789f;
+		float nearPlane = 0.1f;
+		float farPlane = 1000.f;
+
+		glm::mat4 ProjectionMatrix(1.f);
+		ProjectionMatrix = glm::perspective(fov,
+			static_cast<float>(game.GetFbW()) / game.GetFbH(),
+			nearPlane, farPlane);
+
+		glm::vec3 lightPos0(0.f, 0.f, 1.f);
+		shader.Bind();
+
+		shader.SetUniformMatrix4fv("ModelMatrix", 1, false, glm::value_ptr(ModelMatrix));
+		shader.SetUniformMatrix4fv("ViewMatrix", 1, false, glm::value_ptr(ViewMatrix));
+		shader.SetUniformMatrix4fv("ProjectionMatrix", 1, false, glm::value_ptr(ProjectionMatrix));
+
+		shader.SetUniform3fv("lightPos0", 1, glm::value_ptr(lightPos0));
+		shader.SetUniform3fv("cameraPos", 1, glm::value_ptr(cameraPos));
+
+		shader.Unbind();
+
+		Renderer renderer;
+
+		float r = 0.f;
+		float incr = 0.05f;
+
+		while (!glfwWindowShouldClose(game.GetWindow()))
+		{
+			renderer.Clear();
+
+			shader.Bind();
+			shader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
+			material0.sendToShader(shader);
+
+			shader.SetUniformMatrix4fv("ProjectionMatrix", 1, false, glm::value_ptr(ProjectionMatrix));
+			shader.SetUniformMatrix4fv("ModelMatrix", 1, false, glm::value_ptr(ModelMatrix));
+
+			ModelMatrix = glm::mat4(1.f);
+			ModelMatrix = glm::translate(ModelMatrix, position);
+			ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.x), glm::vec3(1.f, 0.f, 0.f));
+			ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.y), glm::vec3(0.f, 1.f, 0.f));
+			ModelMatrix = glm::rotate(ModelMatrix, glm::radians(rotation.z), glm::vec3(0.f, 0.f, 1.f));
+			ModelMatrix = glm::scale(ModelMatrix, scale);
+			int fbW = game.GetFbW();
+			int fbH = game.GetFbH();
+			glfwGetFramebufferSize(game.GetWindow(), &fbW, &fbH);
+
+			ProjectionMatrix = glm::mat4(1.f);
+			ProjectionMatrix = glm::perspective(fov,
+				static_cast<float>(fbW) / fbH,
+				nearPlane, farPlane);
+
+			renderer.Draw(va, ib, shader);
+
+			if (r > 1.0f)
+				incr = -0.001f;
+			else if (r < 0.0f)
+				incr = 0.001f;
+
+			r += incr;
+
+			glfwSwapBuffers(game.GetWindow());
+
+			glfwPollEvents();
+			updateInput(game.GetWindow(), position, rotation, scale);
+		}
+
+	}
+
+	glfwTerminate();
+	return 0;
 }
