@@ -4,32 +4,67 @@
 #include "Texture.h"
 #include "VertexBufferLayout.h"
 
+uint8_t rotateMode = 0;
+/*
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	//Mode
+	if (key == GLFW_KEY_R && action = GLFW_PRESS)
+	{
+		rotateMode += 1;
+	}
+}
+*/
 void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
 {
+	//Mode
+	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+	{
+		rotateMode += 1;
+	}
+	//Position
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		position.z -= 0.01f;
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-	{
-		position.x -= 0.01f;
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
 		position.z += 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 	{
 		position.x += 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		rotation.y -= 1.f;
+		position.z -= 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		position.x -= 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+	{
+		position.y += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+	{
+		position.y -= 0.01f;
+	}
+	//Rotation
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && rotateMode % 2 == 1)
 	{
 		rotation.y += 1.f;
 	}
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && rotateMode % 2 == 1)
+	{
+		rotation.y -= 1.f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS && rotateMode % 2 == 1)
+	{
+		rotation.x += 1.f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS && rotateMode % 2 == 1)
+	{
+		rotation.x -= 1.f;
+	}
+	//Scale
 	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
 	{
 		scale += 0.01f;
@@ -163,6 +198,8 @@ int main(void)
 
 			glfwPollEvents();
 			updateInput(game.GetWindow(), position, rotation, scale);
+
+			//glfwSetKeyCallback(game.GetWindow(), key_callback);
 		}
 
 	}
