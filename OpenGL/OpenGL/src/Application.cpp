@@ -96,7 +96,7 @@ int main(void)
 
 		IndexBuffer ib(indices, 6);
 		
-		//Primitive quadPrim("Quad", 1, 1);
+		Primitive quadPrim("Quad", 1, 1);
 		
 		Shader shader("res/shaders/shaders.shader");
 		shader.Bind();
@@ -179,10 +179,16 @@ int main(void)
 				static_cast<float>(fbW) / fbH,
 				nearPlane, farPlane);
 			
-			renderer.Draw(va, ib, shader);
-			//IndexBuffer ib = quadPrim.GetIb();
-			//renderer.Draw(quadPrim.GetVa(), ib, shader);
-			
+			//renderer.Draw(va, ib, shader);
+			//IndexBuffer quadPrimIb = quadPrim.GetIb();
+			renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
+
+			/*
+			shader.Bind();
+			quadPrim.GetVa().Bind();
+			quadPrim.GetIb().Bind();
+			glDrawElements(GL_TRIANGLES, quadPrim.GetIb().GetCount(), GL_UNSIGNED_INT, nullptr);
+			*/
 			if (r > 1.0f)
 				incr = -0.001f;
 			else if (r < 0.0f)
