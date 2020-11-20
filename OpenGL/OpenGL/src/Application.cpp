@@ -179,9 +179,9 @@ int main(void)
 				static_cast<float>(fbW) / fbH,
 				nearPlane, farPlane);
 			
-			//renderer.Draw(va, ib, shader);
+			renderer.Draw(va, ib, shader);
 			//IndexBuffer quadPrimIb = quadPrim.GetIb();
-			renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
+			//renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
 
 			/*
 			shader.Bind();
