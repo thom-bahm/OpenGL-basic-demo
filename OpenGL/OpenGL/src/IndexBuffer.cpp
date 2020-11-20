@@ -1,6 +1,11 @@
 #include "IndexBuffer.h"
 #include "Renderer.h"
 
+IndexBuffer::IndexBuffer()
+{
+	ASSERT(sizeof(unsigned int) == sizeof(GLuint));
+	glGenBuffers(1, &m_RendererID);
+}
 IndexBuffer::IndexBuffer(const unsigned int* data, unsigned int count)
 	: m_Count(count)
 {

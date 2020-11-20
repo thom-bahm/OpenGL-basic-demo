@@ -2,26 +2,11 @@
 
 #include <iostream>
 #include "Texture.h"
-#include "VertexBufferLayout.h"
+#include "Primitives.h"
 
-uint8_t rotateMode = 0;
-/*
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	//Mode
-	if (key == GLFW_KEY_R && action = GLFW_PRESS)
-	{
-		rotateMode += 1;
-	}
-}
-*/
+//Keyboard Inputs
 void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
 {
-	//Mode
-	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-	{
-		rotateMode += 1;
-	}
 	//Position
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
@@ -39,28 +24,34 @@ void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, g
 	{
 		position.x -= 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.y += 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.y -= 0.01f;
 	}
 	//Rotation
-	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && rotateMode % 2 == 1)
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
 		rotation.y += 1.f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && rotateMode % 2 == 1)
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
 		rotation.y -= 1.f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS && rotateMode % 2 == 1)
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
 		rotation.x += 1.f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS && rotateMode % 2 == 1)
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS && 
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
 		rotation.x -= 1.f;
 	}
@@ -80,7 +71,7 @@ int main(void)
 	Game game(1080, 1080, "Engine", 4, 4, true);
 
 	{
-		float positions[] = {
+		float positions[] = { //Quad positions
 			//Positions			//Tex Coords		//Normals
 		   -0.8f, -0.8f, 0.f,   0.f, 0.0f, 0.0f,	0.f, 0.0f,  1.0f, //0 Bottom Left
 			0.8f, -0.8f, 0.f,   1.0f, 0.0f, 0.f,	0.0f, 0.0f, 1.f, //1 Bottom Right
@@ -88,7 +79,7 @@ int main(void)
 		   -0.8f, 0.8f, 0.f,    0.0f, 1.0f, 0.f,	0.0f, 0.0f, 1.f  //3 Top Left
 		};
 
-		unsigned int indices[] = {
+		unsigned int indices[] = { //Quad indices
 			0, 1, 2,
 			2, 3, 0
 		};
