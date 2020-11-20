@@ -7,10 +7,10 @@
 class Primitive
 {
 private:
-	VertexArray pVa;
-	VertexBuffer pVb;
-	VertexBufferLayout pLayout;
-	IndexBuffer pIb;
+	VertexArray p_Va;
+	VertexBuffer p_Vb;
+	VertexBufferLayout p_Layout;
+	IndexBuffer p_Ib;
 	
 
 public:
@@ -21,5 +21,9 @@ public:
 	void Quad();
 	void Plane(int dimensionW, int dimensionL);
 
+	inline VertexArray GetVa() { return p_Va; }
+	inline VertexBuffer GetVb() { return p_Vb; }
+	inline VertexBufferLayout GetLayout() { return p_Layout; }
+	inline IndexBuffer GetIb() const { return p_Ib; }
 	
 };

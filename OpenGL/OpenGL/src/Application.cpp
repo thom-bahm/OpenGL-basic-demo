@@ -71,6 +71,7 @@ int main(void)
 	Game game(1080, 1080, "Engine", 4, 4, true);
 
 	{
+		/*
 		float positions[] = { //Quad positions
 			//Positions			//Tex Coords		//Normals
 		   -0.8f, -0.8f, 0.f,   0.f, 0.0f, 0.0f,	0.f, 0.0f,  1.0f, //0 Bottom Left
@@ -94,7 +95,9 @@ int main(void)
 		va.AddBuffer(vb, layout);
 
 		IndexBuffer ib(indices, 6);
-
+		*/
+		Primitive quadPrim("Quad", 1, 1);
+		
 		Shader shader("res/shaders/shaders.shader");
 		shader.Bind();
 		shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
@@ -175,9 +178,10 @@ int main(void)
 			ProjectionMatrix = glm::perspective(fov,
 				static_cast<float>(fbW) / fbH,
 				nearPlane, farPlane);
-
-			renderer.Draw(va, ib, shader);
-
+			
+			//renderer.Draw(va, ib, shader);
+			renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
+			
 			if (r > 1.0f)
 				incr = -0.001f;
 			else if (r < 0.0f)

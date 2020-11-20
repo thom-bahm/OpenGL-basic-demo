@@ -4,8 +4,8 @@ Primitive::Primitive(std::string primType,int dimensionW, int dimensionL)
 {
 	p_Va = VertexArray();
 	p_Vb = VertexBuffer();
-	p_Ib = IndexBuffer();
 	p_Layout = VertexBufferLayout();
+	p_Ib = IndexBuffer();
 	
 	if (primType == "Triangle")
 		Triangle();
@@ -21,6 +21,11 @@ Primitive::~Primitive()
 
 void Primitive::Triangle()
 
+{
+	
+}
+
+void Primitive::Quad()
 {
 	float positions[] = { //Quad positions
 			//Positions			//Tex Coords		//Normals
@@ -45,12 +50,14 @@ void Primitive::Triangle()
 	va.AddBuffer(vb, layout);
 
 	IndexBuffer ib(indices, 6);
-}
 
-void Primitive::Quad()
-{
+	p_Va = va;
+	p_Vb = vb;
+	p_Layout = layout;
+	p_Ib = ib;
 }
 
 void Primitive::Plane(int dimensionW, int dimensionL)
 {
+	
 }
