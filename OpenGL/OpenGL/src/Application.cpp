@@ -68,6 +68,7 @@ void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, g
 
 int main(void)
 {
+	glEnable(GL_DEBUG_OUTPUT);
 	Game game(1080, 1080, "Engine", 4, 4, true);
 
 	{
@@ -180,7 +181,9 @@ int main(void)
 				nearPlane, farPlane);
 			
 			renderer.Draw(va, ib, shader);
-			//IndexBuffer quadPrimIb = quadPrim.GetIb();
+			IndexBuffer quadPrimIb = quadPrim.GetIb();
+			VertexArray quadPrimVa = quadPrim.GetVa();
+			//renderer.Draw(quadPrimVa, quadPrimIb, shader);
 			//renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
 
 			/*

@@ -2,6 +2,7 @@
 #include "Renderer.h"
 
 IndexBuffer::IndexBuffer()
+	:m_Count()
 {
 	glGenBuffers(1, &m_RendererID);
 }
@@ -28,4 +29,4 @@ void IndexBuffer::Bind() const
 void IndexBuffer::Unbind() const
 {
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
-}
+} 
