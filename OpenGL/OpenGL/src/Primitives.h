@@ -24,6 +24,6 @@ public:
 	inline VertexArray GetVa() { return p_Va; }
 	inline VertexBuffer GetVb() { return p_Vb; }
 	inline VertexBufferLayout GetLayout() { return p_Layout; }
-	inline IndexBuffer GetIb() const { return p_Ib; }
+	inline IndexBuffer GetIb() { return p_Ib; }
 	
 };

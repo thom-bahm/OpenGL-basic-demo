@@ -251,3 +251,4 @@ OpenGL/OpenGL/Dependencies/GLEW/doc/github.png
 *.db-wal
 *.opendb
 OpenGL/OpenGL/src/vendor/glm/CMakeLists.txt
+OpenGL/OpenGL/Debug/OpenGL.vcxproj.FileListAbsolute.txt
