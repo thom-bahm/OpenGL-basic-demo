@@ -1,7 +1,10 @@
 # OpenGLv2
-Ultimate goal is to create realistic water and waves that run in realtime, many many side goals and much groundwork needs to be laid down before that though. 
-
-Currently using GLFW and GLEW Binaries.
+Main goal to create realistic water that runs in realtime. If possible I would like to make it a plugin for ue4, but I have no idea how I would do that.
+### Project Information/ Documentation:
+- Written in c++, using visual studio community, 2017
+- stb_image, GLFW, GLEW, GLM and OpenGL functions are used (Maybe more to come later)
+- Used precompiled binaries for libraries instead of building source code
+- Static libraries were used (32 bit)
 ## Sources / Information
 
 #### Articles
