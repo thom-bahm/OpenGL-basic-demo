@@ -1,11 +1,7 @@
 #include "Primitives.h"
-
+#include <iostream>
 Primitive::Primitive(std::string primType,int dimensionW, int dimensionL)
 {
-	p_Va = VertexArray();
-	p_Vb = VertexBuffer();
-	p_Layout = VertexBufferLayout();
-	p_Ib = IndexBuffer();
 	
 	if (primType == "Triangle")
 		Triangle();
@@ -20,7 +16,6 @@ Primitive::~Primitive()
 }
 
 void Primitive::Triangle()
-
 {
 	
 }
@@ -39,22 +34,20 @@ void Primitive::Quad()
 		0, 1, 2,
 		2, 3, 0
 	};
+	//VertexArray va = p_Va;
+	p_Va = VertexArray();
+	p_Vb = VertexBuffer(positions, sizeof(float) * 4 * 9);
 
-	VertexArray va;
-	VertexBuffer vb(positions, sizeof(float) * 4 * 9);
+	p_Layout = VertexBufferLayout();
+	p_Layout.Push<float>(3);
+	p_Layout.Push<float>(3);
+	p_Layout.Push<float>(3);
+	p_Va.AddBuffer(p_Vb, p_Layout);
 
-	VertexBufferLayout layout;
-	layout.Push<float>(3);
-	layout.Push<float>(3);
-	layout.Push<float>(3);
-	va.AddBuffer(vb, layout);
+	p_Ib = IndexBuffer(indices, 6);
 
-	IndexBuffer ib(indices, 6);
-
-	p_Va = va;
-	p_Vb = vb;
-	p_Layout = layout;
-	p_Ib = ib;
+	std::cout << p_Va.GetID()<< std::endl;
+	std::cout << p_Vb.GetID() << std::endl;
 }
 
 void Primitive::Plane(int dimensionW, int dimensionL)

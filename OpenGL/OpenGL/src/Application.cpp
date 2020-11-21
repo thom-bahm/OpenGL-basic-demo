@@ -8,19 +8,23 @@
 void updateInput(GLFWwindow* window, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
 {
 	//Position
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS &&
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.z += 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS &&
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.x += 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS &&
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.z -= 0.01f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS &&
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) != GLFW_PRESS)
 	{
 		position.x -= 0.01f;
 	}
@@ -96,8 +100,9 @@ int main(void)
 		va.AddBuffer(vb, layout);
 
 		IndexBuffer ib(indices, 6);
+
 		
-		Primitive quadPrim("Quad", 1, 1);
+		//Primitive quadPrim("Quad", 1, 1);
 		
 		Shader shader("res/shaders/shaders.shader");
 		shader.Bind();
@@ -179,11 +184,10 @@ int main(void)
 			ProjectionMatrix = glm::perspective(fov,
 				static_cast<float>(fbW) / fbH,
 				nearPlane, farPlane);
-			
+
 			renderer.Draw(va, ib, shader);
-			IndexBuffer quadPrimIb = quadPrim.GetIb();
-			VertexArray quadPrimVa = quadPrim.GetVa();
-			//renderer.Draw(quadPrimVa, quadPrimIb, shader);
+			//IndexBuffer quadPrimIb = quadPrim.GetIb();
+			//renderer.Draw(quadPrim.GetVa(), quadPrimIb, shader);
 			//renderer.Draw(quadPrim.GetVa(), quadPrim.GetIb(), shader);
 
 			/*
@@ -202,6 +206,7 @@ int main(void)
 			glfwSwapBuffers(game.GetWindow());
 
 			glfwPollEvents();
+			//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 			updateInput(game.GetWindow(), position, rotation, scale);
 
 			//glfwSetKeyCallback(game.GetWindow(), key_callback);

@@ -83,7 +83,7 @@ void main()
 	//Final:
 	vec4 texColor0 = texture(material.diffuseTex, v_TexCoord);
 	vec4 texColor1 = texture(material.specularTex, v_TexCoord);
-	color = texColor1 * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f));
+	color = u_Color * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f));
 };
 
 
