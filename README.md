@@ -2,9 +2,9 @@
 Main goal to create realistic water that runs in realtime. If possible I would like to make it a plugin for ue4, but I have no idea how I would do that.
 ### Project Information/ Documentation:
 - Written in c++, using visual studio community, 2019
-- stb_image, GLFW, GLEW, GLM and OpenGL functions are used (Maybe more to come later)
-- Used precompiled binaries for libraries instead of building source code
-- Static libraries were used (32 bit)
+- stb_image, GLFW, GLAD, GLM and OpenGL functions are used (Maybe more to come later)
+- Used CMake to build source code.
+- 64 bit
 ## Sources / Information
 
 #### Articles
