@@ -252,3 +252,7 @@ OpenGL/OpenGL/Dependencies/GLEW/doc/github.png
 *.opendb
 OpenGL/OpenGL/src/vendor/glm/CMakeLists.txt
 OpenGL/OpenGL/Debug/OpenGL.vcxproj.FileListAbsolute.txt
+OpenGLWater/OpenGLWater.sln
+OpenGLWater/OpenGLWater/glad.c
+OpenGLWater/OpenGLWater/OpenGLWater.vcxproj
+OpenGLWater/OpenGLWater/OpenGLWater.vcxproj.filters
