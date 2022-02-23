@@ -27,7 +27,7 @@ Personal OpenGL Demo for 3D objects / primitives, might expand into more complex
 ##### To-Do
 * Learn ImGui
 * Figure out how to import .FBX, ultimate goal would be to import a WorldCreator 1000mx1000m or larger terrain
-* More sophisticated lighting/ shaders, also see if theres any good resources on how to create skybox/ atmosphere.
+* Look into skybox / atmosphere shaders, maybe browse on shadertoy for anything useful.
 * Create wireframe mode, I'm pretty sure it's only one line of code but maybe make it a parameter so I could edit lit vs wireframe in real time.
 * Figure out how to offset individual and group vertices.
 * Try to offset individual and group vertices over some time and have it repeat the process, just to be more prepared for Gerstner waves.
